@@ -1,0 +1,23 @@
+class Solution {
+public:
+    vector<int> intersection(vector<int>& nums1, vector<int>& nums2) {
+        
+    sort(nums1.begin(),nums1.end());
+    sort(nums2.begin(),nums2.end());
+    vector<int> ans;
+   
+    int s=0,l=0,k=-1;
+    
+    while(s<nums1.size()&&l<nums2.size()){
+    
+    
+    if(nums1[s]==nums2[l]){
+        if(k==nums1[s]){s++;l++;}
+        else{ans.push_back(nums1[s]);k=nums1[s];s++;l++;}}//using k to store a value that is matched already so that cases after it having the same value can be ignored 
+    else if(nums1[s]<nums2[l]) s++;
+    else l++;
+    
+    }
+    return ans;
+    }
+};
