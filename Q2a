@@ -1,0 +1,82 @@
+#include<iostream>
+#include<stack>
+using namespace std;
+
+int main (){
+
+int n;
+cout<<" enter no of elements of array ";
+cin>>n;
+int arr[n];
+
+for (int i = 0; i < n; ++i)
+{
+	cin>>arr[i];
+}
+
+
+stack<int> s;
+stack<int> ti;
+
+
+for (int i = 0; i < n; ++i)
+{
+	int t = arr[i];
+    
+    if(s.empty()){
+      s.push(t);
+
+    }else{
+       
+    while(!s.empty() && t<s.top()){
+        int x = s.top();
+        ti.push(x);
+        s.pop();
+
+    }
+
+    s.push(t);
+    while(!ti.empty()){
+    
+    int x = ti.top();
+        s.push(x);
+        ti.pop();
+
+    }
+   
+  }
+
+
+  }
+
+
+   while (!s.empty()) {
+        cout << s.top() <<" ";
+        s.pop();
+    }
+
+
+ 
+
+
+
+
+
+
+return 0 ;
+
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
